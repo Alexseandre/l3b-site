@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <style>
+      @keyframes drawBracket {
+        from { stroke-dashoffset: 240; }
+        to { stroke-dashoffset: 0; }
+      }
+
+      @keyframes fadeInLine {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes subtlePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+      }
+
+      .bracket {
+        fill: none;
+        stroke-width: 18;
+        stroke-linejoin: miter;
+        stroke-linecap: butt;
+        stroke-dasharray: 240;
+        stroke-dashoffset: 240;
+        animation: drawBracket 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      .bracket-top { stroke: #1D5D9B; animation-delay: 0.2s; }
+      .bracket-bottom { stroke: #828282; animation-delay: 0.5s; }
+
+      .draft-line {
+        stroke: #D5D8DC;
+        stroke-width: 1.5;
+        opacity: 0;
+        animation: fadeInLine 0.6s ease-out forwards;
+      }
+      .draft-line-1 { animation-delay: 0s; }
+      .draft-line-2 { animation-delay: 0.1s; }
+      .draft-line-3 { animation-delay: 0.2s; }
+
+      #logo-mark {
+        transform-origin: 150px 150px;
+        animation: subtlePulse 4s ease-in-out 1.5s infinite;
+      }
+    </style>
+  </defs>
+
+  <g id="drafting-lines">
+    <line x1="20" y1="150" x2="280" y2="150" class="draft-line draft-line-1" />
+    <line x1="150" y1="20" x2="150" y2="280" class="draft-line draft-line-2" />
+    <line x1="60" y1="240" x2="240" y2="60" class="draft-line draft-line-3" />
+  </g>
+
+  <g id="logo-mark">
+    <polyline points="90,140 90,80 210,80 210,140" class="bracket bracket-top" />
+    <polyline points="90,160 90,220 210,220 210,160" class="bracket bracket-bottom" />
+  </g>
+</svg>

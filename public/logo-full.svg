@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="600" height="350">
+  <defs>
+    <style>
+      @keyframes drawBracket {
+        from { stroke-dashoffset: 224; }
+        to { stroke-dashoffset: 0; }
+      }
+
+      @keyframes fadeInLine {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes subtlePulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.015); opacity: 0.95; }
+      }
+
+      .bracket {
+        fill: none;
+        stroke-width: 16;
+        stroke-linejoin: miter;
+        stroke-linecap: butt;
+        stroke-dasharray: 224;
+        stroke-dashoffset: 224;
+        animation: drawBracket 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      .bracket-top { stroke: #1D5D9B; animation-delay: 0.3s; }
+      .bracket-bottom { stroke: #828282; animation-delay: 0.6s; }
+
+      .draft-line {
+        stroke: #D5D8DC;
+        stroke-width: 1.5;
+        opacity: 0;
+        animation: fadeInLine 0.8s ease-out forwards;
+      }
+      .draft-line-1 { animation-delay: 0s; }
+      .draft-line-2 { animation-delay: 0.15s; }
+      .draft-line-3 { animation-delay: 0.3s; }
+
+      .font-main { font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif; }
+
+      #logo-text {
+        opacity: 0;
+        animation: slideUp 0.8s ease-out 1.5s forwards;
+      }
+
+      #logo-mark {
+        transform-origin: 300px 120px;
+        animation: subtlePulse 4s ease-in-out 2.5s infinite;
+      }
+    </style>
+  </defs>
+
+  <g id="drafting-lines">
+    <line x1="170" y1="120" x2="430" y2="120" class="draft-line draft-line-1" />
+    <line x1="300" y1="20" x2="300" y2="220" class="draft-line draft-line-2" />
+    <line x1="220" y1="200" x2="380" y2="40" class="draft-line draft-line-3" />
+  </g>
+
+  <g id="logo-mark">
+    <polyline id="top-shape" points="240,112 240,60 360,60 360,112" class="bracket bracket-top" />
+    <polyline id="bottom-shape" points="240,128 240,180 360,180 360,128" class="bracket bracket-bottom" />
+  </g>
+
+  <g id="logo-text">
+    <text x="300" y="260" class="font-main" font-size="34" text-anchor="middle" letter-spacing="2.5">
+      <tspan fill="#1A1A1A" font-weight="400">L</tspan>
+      <tspan fill="#1D5D9B" font-weight="500">3</tspan>
+      <tspan fill="#1A1A1A" font-weight="400">B </tspan>
+      <tspan fill="#1A1A1A" font-weight="300">CONSTRUCTION</tspan>
+    </text>
+
+    <text x="475" y="300" class="font-main" font-size="20" text-anchor="end" letter-spacing="1.5">
+      <tspan fill="#828282" font-weight="300">&amp; </tspan>
+      <tspan fill="#1D5D9B" font-weight="400">RENOVATION</tspan>
+    </text>
+  </g>
+</svg>

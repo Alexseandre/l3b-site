@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="600" height="350">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&amp;display=swap');
+      .path-bracket { fill: none; stroke-width: 16; stroke-linejoin: round; stroke-linecap: round; }
+      .path-top { stroke: #1D5D9B; }
+      .path-bottom { stroke: #9CA3AF; }
+      .font-outfit { font-family: 'Outfit', sans-serif; }
+    </style>
+    <pattern id="blueprint-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#F3F4F6" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#blueprint-grid)" rx="15" />
+
+  <line x1="150" y1="250" x2="450" y2="20" stroke="#E5E7EB" stroke-width="2" />
+
+  <g id="logo-mark">
+    <path id="arch-top" d="M 240,115 L 240,65 L 360,65 L 360,115" class="path-bracket path-top" />
+    <path id="arch-bottom" d="M 240,125 L 240,175 L 360,175 L 360,125" class="path-bracket path-bottom" />
+  </g>
+
+  <g id="logo-text">
+    <text x="300" y="260" class="font-outfit" font-size="34" text-anchor="middle" letter-spacing="3">
+      <tspan fill="#1F2937" font-weight="400">L</tspan><tspan fill="#1D5D9B" font-weight="600">3</tspan><tspan fill="#1F2937" font-weight="400">B </tspan>
+      <tspan fill="#4B5563" font-weight="300">CONSTRUCTION</tspan>
+    </text>
+    <text x="475" y="300" class="font-outfit" font-size="18" text-anchor="end" letter-spacing="2">
+      <tspan fill="#9CA3AF" font-weight="300">&amp; </tspan><tspan fill="#1D5D9B" font-weight="400">RÉNOVATION</tspan>
+    </text>
+  </g>
+</svg>

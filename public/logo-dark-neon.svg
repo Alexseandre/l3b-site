@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="600" height="350" style="background-color: #0F172A; border-radius: 12px;">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&amp;display=swap');
+      .neon-bracket { fill: none; stroke-width: 14; stroke-linejoin: miter; stroke-linecap: square; }
+      .neon-top { stroke: #3B82F6; filter: drop-shadow(0px 0px 8px rgba(59, 130, 246, 0.4)); }
+      .neon-bottom { stroke: #CBD5E1; }
+      .tech-line { stroke: #1E293B; stroke-width: 2; }
+      .font-main { font-family: 'Montserrat', sans-serif; }
+    </style>
+  </defs>
+
+  <g id="drafting-lines">
+    <line x1="100" y1="120" x2="500" y2="120" class="tech-line" />
+    <line x1="300" y1="0" x2="300" y2="240" class="tech-line" />
+    <circle cx="300" cy="120" r="80" fill="none" stroke="#1E293B" stroke-width="1" stroke-dasharray="4 4"/>
+  </g>
+
+  <g id="logo-mark">
+    <polyline points="240,112 240,60 360,60 360,112" class="neon-bracket neon-top" />
+    <polyline points="240,128 240,180 360,180 360,128" class="neon-bracket neon-bottom" />
+  </g>
+
+  <g id="logo-text">
+    <text x="300" y="270" class="font-main" font-size="32" text-anchor="middle" letter-spacing="4">
+      <tspan fill="#F8FAFC" font-weight="400">L</tspan>
+      <tspan fill="#3B82F6" font-weight="600">3</tspan>
+      <tspan fill="#F8FAFC" font-weight="400">B </tspan>
+      <tspan fill="#CBD5E1" font-weight="300">CONSTRUCTION</tspan>
+    </text>
+    <text x="470" y="310" class="font-main" font-size="18" text-anchor="end" letter-spacing="2">
+      <tspan fill="#64748B" font-weight="300">&amp; </tspan>
+      <tspan fill="#3B82F6" font-weight="400">RENOVATION</tspan>
+    </text>
+  </g>
+</svg>

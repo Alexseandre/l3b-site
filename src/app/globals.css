@@ -1,26 +1,236 @@
 @import "tailwindcss";
 
+/* ========================================
+   L3B Design Tokens
+   ======================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors - L3B */
+  --color-primary: #1B2A4A;
+  --color-primary-light: #2A3F6E;
+  --color-primary-dark: #111C33;
+  --color-secondary: #1D5D9B;
+  --color-secondary-light: #3A7BBF;
+  --color-secondary-dark: #16497A;
+
+  /* Colors - Pégase */
+  --color-pegase: #2EC4B6;
+  --color-pegase-light: #5DD9CE;
+  --color-pegase-dark: #1FA396;
+
+  /* Neutrals */
+  --color-background: #FFFFFF;
+  --color-foreground: #1A1A1A;
+  --color-muted: #F5F5F0;
+  --color-muted-foreground: #6B7280;
+  --color-border: #E5E5E0;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #1A1A1A;
+  --color-anthracite: #2D2D2D;
+
+  /* Spacing */
+  --section-padding-y: 5rem;
+  --container-padding-x: 1.5rem;
+  --header-height: 5rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-light: var(--color-secondary-light);
+  --color-secondary-dark: var(--color-secondary-dark);
+  --color-pegase: var(--color-pegase);
+  --color-pegase-light: var(--color-pegase-light);
+  --color-pegase-dark: var(--color-pegase-dark);
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --color-border: var(--color-border);
+  --color-card: var(--color-card);
+  --color-card-foreground: var(--color-card-foreground);
+  --color-anthracite: var(--color-anthracite);
+  --font-sans: var(--font-plus-jakarta);
+  --font-heading: var(--font-plus-jakarta);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ========================================
+   Base Styles
+   ======================================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   Selection
+   ======================================== */
+
+::selection {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+/* ========================================
+   Skip to content (A11y)
+   ======================================== */
+
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  padding: 1rem;
+  background: var(--color-primary);
+  color: white;
+  font-weight: 600;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================
+   Animated Logo — #15 Levitate
+   ======================================== */
+
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes logo-shadow-pulse {
+  0%, 100% { opacity: 0.25; transform: scaleX(1); }
+  50% { opacity: 0.08; transform: scaleX(0.75); }
+}
+
+@keyframes logo-draw-bracket {
+  from { stroke-dashoffset: 140; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes logo-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes logo-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Draft lines: fade in */
+.logo-dl {
+  opacity: 0;
+  animation: logo-fade-in 0.4s ease forwards;
+}
+.logo-dl-2 { animation-delay: 0.1s; }
+.logo-dl-3 { animation-delay: 0.2s; }
+
+/* Shadow: appears then pulses */
+.logo-shadow {
+  opacity: 0;
+  transform-origin: center;
+  animation:
+    logo-enter 0.4s ease 0.15s forwards,
+    logo-shadow-pulse 3s ease-in-out 1s infinite;
+}
+
+/* Floating bracket group: enters then floats */
+.logo-float-group {
+  opacity: 0;
+  animation:
+    logo-enter 0.6s ease 0.2s forwards,
+    logo-float 3s ease-in-out 1s infinite;
+}
+
+/* Brackets: stroke draw */
+.logo-bracket-anim {
+  fill: none;
+  stroke-linejoin: miter;
+  stroke-linecap: butt;
+  stroke-dasharray: 140;
+  stroke-dashoffset: 140;
+}
+
+.logo-bt {
+  animation: logo-draw-bracket 0.7s ease 0.3s forwards;
+}
+
+.logo-bb {
+  animation: logo-draw-bracket 0.7s ease 0.5s forwards;
+}
+
+/* ========================================
+   Hero Grid Background
+   ======================================== */
+
+.hero-grid-bg {
+  background-image:
+    linear-gradient(rgba(29, 93, 155, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 93, 155, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at 30% 50%, black 20%, transparent 70%);
+}
+
+@keyframes grid-move {
+  from { background-position: 0 0; }
+  to { background-position: 60px 60px; }
+}
+
+/* ========================================
+   Section Divider
+   ======================================== */
+
+.section-accent-line {
+  height: 3px;
+  width: 60px;
+  background: linear-gradient(90deg, var(--color-secondary), transparent);
+}
+
+/* ========================================
+   Custom Scrollbar
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light);
 }

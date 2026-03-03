@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L3B - Comparaison Logos SVG</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f1f5f9; padding: 2rem; }
+    h1 { text-align: center; margin-bottom: 2rem; color: #1e293b; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1400px; margin: 0 auto; }
+    .card { background: white; border-radius: 16px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .card h2 { font-size: 1rem; color: #64748b; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .card img { width: 100%; height: auto; border-radius: 8px; }
+    .card.dark { background: #0f172a; }
+    .card.dark h2 { color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <h1>L3B - Comparaison des 4 variantes SVG</h1>
+  <div class="grid">
+    <div class="card">
+      <h2>1. Original (animé - brackets miter)</h2>
+      <img src="/logo-full.svg" alt="Logo original animé">
+    </div>
+    <div class="card">
+      <h2>2. Blueprint (grille + brackets arrondis)</h2>
+      <img src="/logo-blueprint.svg" alt="Logo blueprint">
+    </div>
+    <div class="card">
+      <h2>3. Icon seul (animé)</h2>
+      <img src="/logo-icon.svg" alt="Logo icon">
+    </div>
+    <div class="card dark">
+      <h2>4. Dark / Neon (glow bleu #3B82F6)</h2>
+      <img src="/logo-dark-neon.svg" alt="Logo dark neon">
+    </div>
+  </div>
+</body>
+</html>
